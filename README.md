@@ -4,6 +4,9 @@
 #### Do pacote pyDecision
 
 
+######## Ambiente local de execução
+######## 'streamlitAnom'
+
 ### Comando para rodar o script
 ## streamlit run main.py
 

@@ -21,13 +21,18 @@ st.set_page_config(layout="wide",page_title="TCC MBA USP ESALQ",page_icon="chart
 # funções
 
 def createASelectionOption(labelName, options):
-    st.subheader(labelName)
+    st.markdown('##### ' + labelName)
+    #st.subheader(labelName)
     option = st.selectbox('' ,options)
     return option
 
-def selectOptionsDefinition():
+def selectOptionsDefinitionCapacity():
     # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
-    # Campos de dados CNHI
+    st.subheader("Critério: Capacidade Equipe")
+    st.markdown('##### ------------------------------------------------------------------------------------------')
+
+    allResults = []
+
     allOptionsList = []
     #### primeira Lista
     listOfLabelMessage=["Qualificação e experiência da equipe técnica de mentores no problema de IA apresentador:"
@@ -60,17 +65,102 @@ def selectOptionsDefinition():
                  ,"5. A equipe possui capacidade de implementação excepcional, com habilidades abrangentes e experiência comprovada em IA, aparenta não precisar da ajuda."
                 ]
     allOptionsList.append(options03)
-
     for idx, selectMessage in enumerate(listOfLabelMessage):
         optionResult = createASelectionOption(selectMessage,allOptionsList[idx] )
+        allResults.append(optionResult)
         st.write("Opcao escolhida: ", optionResult)
-        st.write("-----------------------")
-    #selectorOptions[optionsQualification]
-                                   
-    #for idxLabel, labelName in enumerate(listOfLabelSelector):
-    #    selectorList.append(createASelectionOption(labelName))
+        st.write("--------------------------------------------------------------------------")
+    return allResults
 
-    #st.write("Qualificacao escolhida: ", opQualificacao[])
+def selectOptionsDefinitionMaturity():
+    # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
+    st.subheader("Critério: Detalhamento/maturidade tecnológica")
+    st.markdown('##### ------------------------------------------------------------------------------------------')
+
+    allResults = []
+
+    allOptionsList = []
+    #### primeira Lista
+    listOfLabelMessage=["Nível de desenvolvimento da tecnologia atual (ideia,protótipo,MVP,produto final"
+                        ,"Maturidade para implementar IA (tem dados e clareza na definição do problema)"
+                        ,"Objetivo ao participar do programa compatível com o que é oferecido"
+                         ]
+    options01 = ["Selecione uma Qualificação:"
+                 ,"1. Ideia - A solução está no estágio inicial de concepção."
+                 ,"2. Protótipo - A solução está em fase de prototipagem inicial."
+                 ,"3. MVP - A solução tem um Produto Mínimo Viável funcional."
+                 ,"4. Produto final - A solução está totalmente desenvolvida e pronta para lançamento."
+                 ,"5. Comercializado - A solução está sendo comercializada com necessidade de melhorias."                ]
+    allOptionsList.append(options01)
+
+    options02 = ["Selecione uma opção:"
+                 ,"1. A startup possui pouca ou nenhuma clareza na definição do problema e dados insuficientes."
+                 ,"2. A startup tem alguma clareza na definição do problema, mas dados limitados."
+                 ,"3. A startup tem definição moderada do problema e dados razoáveis."
+                 ,"4. A startup possui boa clareza na definição do problema e dados suficientes para implementação."
+                 ,"5. A startup tem definição clara e precisa do problema e dados abrangentes e prontos para a implementação de IA com recursos próprios."
+                ]
+    allOptionsList.append(options02)
+    options03 = ["Selecione uma opção:"
+                 ,"1. O objetivo da startup é pouco compatível com o que o programa oferece."
+                 ,"2. O objetivo da startup é algo compatível com o que o programa oferece."
+                 ,"3. O objetivo da startup é moderadamente compatível com o que o programa oferece."
+                 ,"4. O objetivo da startup é altamente compatível com o que o programa oferece."
+                 ,"5. O objetivo da startup é perfeitamente compatível com o que o programa oferece."
+                ]
+    allOptionsList.append(options03)
+    for idx, selectMessage in enumerate(listOfLabelMessage):
+        optionResult = createASelectionOption(selectMessage,allOptionsList[idx] )
+        allResults.append(optionResult)
+        st.write("Opcao escolhida: ", optionResult)
+        st.write("--------------------------------------------------------------------------")
+    return allResults
+  
+
+def selectOptionsDefinitionPotencial():
+    # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
+    st.subheader("Critério: Potencial de negócio")
+    st.markdown('##### ------------------------------------------------------------------------------------------')
+    allResults = []
+
+    allOptionsList = []
+    #### primeira Lista
+    listOfLabelMessage=["Diferenciação e inovação da solução"
+                       ,"Modelo de negócio e estratégias de mercado" 
+                       ,"Capacidade de atração de investimentos e parcerias internas ou externas"
+                       ]
+    options01 = ["Selecione uma Qualificação:"
+                 ,"1. A solução possui pouca ou nenhuma diferenciação ou inovação."
+                 ,"2. A solução tem alguma inovação, mas pouca diferenciação em relação ao mercado."
+                 ,"3. A solução possui inovação moderada e alguma diferenciação."
+                 ,"4. A solução é altamente inovadora e bem diferenciada."
+                 ,"5. A solução é extremamente inovadora e única no mercado."
+                ]
+    allOptionsList.append(options01)
+
+    options02 = ["Selecione uma opção:"
+                 ,"1. O modelo de negócio é fraco e as estratégias de mercado são pouco definidas."
+                 ,"2. O modelo de negócio é básico e as estratégias de mercado são limitadas."
+                 ,"3. O modelo de negócio é razoável e as estratégias de mercado são moderadamente definidas."
+                 ,"4. O modelo de negócio é forte e as estratégias de mercado são bem definidas."
+                 ,"5. O modelo de negócio é robusto e inovador, com estratégias de mercado altamente definidas e eficazes."
+                ]
+    allOptionsList.append(options02)
+    options03 = ["Selecione uma opção:"
+                ,"1. A startup tem pouca ou nenhuma capacidade de atrair investimentos ou parcerias."
+                ,"2. A startup tem alguma capacidade de atrair investimentos ou parcerias."
+                ,"3. A startup tem capacidade moderada de atrair investimentos e parcerias."
+                ,"4. A startup tem alta capacidade de atrair investimentos e parcerias significativas."
+                ,"5. A startup tem excelente capacidade de atrair investimentos e parcerias estratégicas robustas."
+                ]
+    allOptionsList.append(options03)
+    for idx, selectMessage in enumerate(listOfLabelMessage):
+        optionResult = createASelectionOption(selectMessage,allOptionsList[idx] )
+        allResults.append(optionResult)
+        st.write("Opcao escolhida: ", optionResult)
+        st.write("--------------------------------------------------------------------------")
+    return allResults
+
 
 
 # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
@@ -80,5 +170,9 @@ commomHeader(st)
 
 
 # codificacao #
-selectOptionsDefinition()
+resultCapacity = selectOptionsDefinitionCapacity()
+st.markdown("### --------------------------------------------------------------------------------------------")
+resultMaturity = selectOptionsDefinitionMaturity()
+st.markdown("### --------------------------------------------------------------------------------------------")
+resultPotencial = selectOptionsDefinitionPotencial()
 
