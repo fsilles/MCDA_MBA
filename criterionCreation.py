@@ -1,11 +1,11 @@
 
-def createASelectionOption(st, labelName, options):
+def createASelectionOption(st, labelName, options, keyValue):
     st.markdown('##### ' + labelName)
     #st.subheader(labelName)
-    option = st.selectbox('' ,options)
+    option = st.selectbox('' ,options, key=keyValue)
     return option
 
-def selectOptionsDefinitionCapacity(st, showAnswer = False):
+def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
     # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
     st.subheader("Critério: Capacidade Equipe")
     st.markdown('##### ------------------------------------------------------------------------------------------')
@@ -45,14 +45,14 @@ def selectOptionsDefinitionCapacity(st, showAnswer = False):
                 ]
     allOptionsList.append(options03)
     for idx, selectMessage in enumerate(listOfLabelMessage):
-        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx] )
+        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue )
         allResults.append(optionResult)
         if showAnswer:
             st.write("Opcao escolhida: ", optionResult)
         st.write("--------------------------------------------------------------------------")
     return allResults
 
-def selectOptionsDefinitionMaturity(st, showAnswer = False):
+def selectOptionsDefinitionMaturity(st, keyValue, showAnswer = False):
     # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
     st.subheader("Critério: Detalhamento/maturidade tecnológica")
     st.markdown('##### ------------------------------------------------------------------------------------------')
@@ -90,7 +90,7 @@ def selectOptionsDefinitionMaturity(st, showAnswer = False):
                 ]
     allOptionsList.append(options03)
     for idx, selectMessage in enumerate(listOfLabelMessage):
-        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx] )
+        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue )
         allResults.append(optionResult)
         if showAnswer:
             st.write("Opcao escolhida: ", optionResult)
@@ -98,7 +98,7 @@ def selectOptionsDefinitionMaturity(st, showAnswer = False):
     return allResults
   
 
-def selectOptionsDefinitionPotencial(st, showAnswer = False):
+def selectOptionsDefinitionPotencial(st, keyValue, showAnswer = False):
     # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
     st.subheader("Critério: Potencial de negócio")
     st.markdown('##### ------------------------------------------------------------------------------------------')
@@ -136,7 +136,7 @@ def selectOptionsDefinitionPotencial(st, showAnswer = False):
                 ]
     allOptionsList.append(options03)
     for idx, selectMessage in enumerate(listOfLabelMessage):
-        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx] )
+        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue )
         allResults.append(optionResult)
         if showAnswer:
             st.write("Opcao escolhida: ", optionResult)

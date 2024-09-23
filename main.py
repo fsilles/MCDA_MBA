@@ -31,9 +31,21 @@ commomHeader(st)
 
 
 # codificacao #
-resultCapacity = selectOptionsDefinitionCapacity(st, showAnswer=False)
-st.markdown("### --------------------------------------------------------------------------------------------")
-resultMaturity = selectOptionsDefinitionMaturity(st, showAnswer=False)
-st.markdown("### --------------------------------------------------------------------------------------------")
-resultPotencial = selectOptionsDefinitionPotencial(st, showAnswer=False)
+listOfCompanies = ['A', 'B', 'C']
+resultsFromCompany = {}
+for idx, cmpy in enumerate(listOfCompanies):
+    resultsFromCompany[cmpy] = []
+    st.markdown("# Company " + cmpy)
+    keyValue = cmpy.replace(' ', '') + '_C'
+    resultCapacity = selectOptionsDefinitionCapacity(st, keyValue, showAnswer=False)
+    resultsFromCompany[cmpy].append(resultCapacity)
+    st.markdown("### --------------------------------------------------------------------------------------------")
+    keyValue = cmpy.replace(' ', '') + '_M'
+    resultMaturity = selectOptionsDefinitionMaturity(st, keyValue, showAnswer=False)
+    resultsFromCompany[cmpy].append(resultMaturity)
+    st.markdown("### --------------------------------------------------------------------------------------------")
+    keyValue = cmpy.replace(' ', '') +  '_P'
+    resultPotencial = selectOptionsDefinitionPotencial(st, keyValue,  showAnswer=False)
+    resultsFromCompany[cmpy].append(resultPotencial)
+    st.markdown("## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
