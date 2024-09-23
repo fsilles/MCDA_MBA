@@ -2,7 +2,8 @@ def commomHeader(st) :
     # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
     #### titulo
 
-    st.title ('Trabalho de TCC do Aluno Felipe - Curso data Scientist - Usp ESalq')
+    #st.title ('Trabalho de TCC do Aluno Felipe - Curso data Science - Usp ESalq')
+    st.title ('Trabalho de TCC  MBA em Data Science e Analytics - método ELECTRE TRI')
     # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
     # imagem web
 
