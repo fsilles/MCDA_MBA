@@ -142,3 +142,17 @@ def selectOptionsDefinitionPotencial(st, keyValue, showAnswer = False):
             st.write("Opcao escolhida: ", optionResult)
         st.write("--------------------------------------------------------------------------")
     return allResults
+
+def defineStartupNames(st, totalStartups):
+    companyNames = []
+    for idx in range(totalStartups):
+        zeroStr = ''
+        if idx < 9:
+            zeroStr = '0'
+        strNumber = idx + 1
+
+        strCompany = chr(ord('A') + idx)
+
+        company = st.text_input(f"Startup {zeroStr}{strNumber}:", strCompany )
+        companyNames.append(company)
+    return companyNames
