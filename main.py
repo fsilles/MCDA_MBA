@@ -1,20 +1,34 @@
 import os
 import pandas as pd
 import numpy as np
+import time
 import datetime
 import streamlit as st
 import matplotlib.pyplot as plt
 from pandas import read_csv
 from commom import commomHeader
+from pyDecision.algorithm import electre_tri_b
 
 # Import local functions
-from criterionCreation import   selectOptionsDefinitionCapacity, selectOptionsDefinitionMaturity, selectOptionsDefinitionPotencial , defineStartupNames
+from criterionCreation import   selectOptionsDefinitionCapacity, selectOptionsDefinitionMaturity, selectOptionsDefinitionPotencial , defineStartupNames, showResults, retrieveIntegerAnswersCompany
 
 # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
 # configurações de sessão
+def initConfig():
+    
+    Q = [1,1,1,1,1,1,1,1,1]
+    P = [2,2,2,2,2,2,2,2,2]
+    V = [3,3,3,3,3,3,3,3,3]
+    W = [1,1,1,1,1,1,1,1,1]
+
+    b1=[2,2,2,2,2,2,2,2,2]
+    b2=[4,4,4,4,4,4,4,4,4]
+    B = [b1,b2]
+    
+    st.session_state['config'] = {'init':'0', 'totalStartups':0, 'Q':Q,'P':P,'V':V,'W':W,'B':B}
 
 if 'config' not in st.session_state:
-    st.session_state['config'] = {'init':'0', 'totalStartups':0}
+    initConfig()
 
 config = st.session_state['config']
 
@@ -25,9 +39,17 @@ st.set_page_config(layout="wide",page_title="TCC MBA USP ESALQ",page_icon="chart
 # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
 # funções
 def resetAll():
-    st.session_state['config'] = {'init':'0'}
+    initConfig()
 
-
+def checkIntegerAnswersCompany(resultsFromCompanies):
+    status = True
+    try:
+        for key in resultsFromCompanies.keys():
+            companyNow =  resultsFromCompany[key]
+            _ = retrieveIntegerAnswersCompany(companyNow)
+    except:
+        status = False
+    return status
 
 # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
 # Desenha o header de todas as páginas
@@ -53,7 +75,7 @@ if buttonNumberOfStartups:
 if config['init'] == '1':
     #config['init'] = '2'
     companyNames = defineStartupNames(st, config['totalStartups'])
-    confirmStartupNamesBt = st.button('Confirmar')
+    confirmStartupNamesBt = st.button('Confirmar',key='confirmStartupNames')
     #print("companies :", companyNames)
     if confirmStartupNamesBt:
         config['init'] = '2'
@@ -80,6 +102,21 @@ if config['init'] == '2':
         resultPotencial = selectOptionsDefinitionPotencial(st, keyValue,  showAnswer=False)
         resultsFromCompany[cmpy].append(resultPotencial)
         st.markdown("## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    confirmStartupValuesBt = st.button('Confirmar', key='confirmStartupValues')
+    if confirmStartupValuesBt:
+        ok = checkIntegerAnswersCompany(resultsFromCompany)
+        if ok:
+            config['init'] = '3'
+            config['resultsFromCompany'] = resultsFromCompany
+            st.session_state['config'] = config
+            st.experimental_rerun()
+        else:
+            st.warning("Atenção!!! Responder todos critérios")
+            # time.sleep(1.0)
+
+if config['init'] == '3':
+    showResults(st,config)
 
 if config['init'] != '0':
     st.button("Cancelar",  on_click=resetAll)
+#print("St.__version__: ", st.__version__)

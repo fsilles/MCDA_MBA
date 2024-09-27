@@ -1,3 +1,5 @@
+import numpy as np 
+from pyDecision.algorithm import electre_tri_b
 
 def createASelectionOption(st, labelName, options, keyValue):
     st.markdown('##### ' + labelName)
@@ -156,3 +158,49 @@ def defineStartupNames(st, totalStartups):
         company = st.text_input(f"Startup {zeroStr}{strNumber}:", strCompany )
         companyNames.append(company)
     return companyNames
+
+def retrieveIntegerAnswersCompany(companyResponse):
+    companyAnswers = []
+    for answer in companyResponse:
+        for option in answer:
+            optionInt = int(option[0])
+            companyAnswers.append(optionInt)
+    return companyAnswers
+
+def createDatasetAnswer(config):
+    datasetList = []
+    companyNames = []
+    resultsFromCompany = config['resultsFromCompany']
+    for key in resultsFromCompany.keys():
+        companyNames.append(key)
+        companyNow =  resultsFromCompany[key]
+        companyResults = retrieveIntegerAnswersCompany(companyNow)
+        datasetList.append(companyResults)
+    
+    dataset = np.array(datasetList)
+    return companyNames, dataset
+
+
+
+def showResults(st,config):
+    st.write('ResultFinal:')
+    #st.write(config)
+
+    companies , dataset = createDatasetAnswer(config)
+    st.write(companies)
+    st.write(dataset)
+    # Call Electre Tri-B Function
+    W = config['W']
+    Q = config['Q']
+    P = config['P']
+    V = config['V']
+    B = config['B']
+    classification = electre_tri_b(dataset, W , Q , P , V , B , cut_level = 0.8, verbose = True, rule = 'pc', graph = True)
+    for i in range(0, len(classification)):
+        #print('x'+str(i+1)+': '+' Class: '+str(classification[i]))
+        classification= 'x'+str(i+1)+': '+' Class: '+str(classification[i])
+        st.write(classification)
+
+    
+    
+
