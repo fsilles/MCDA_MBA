@@ -24,8 +24,9 @@ def initConfig():
     b1=[2,2,2,2,2,2,2,2,2]
     b2=[4,4,4,4,4,4,4,4,4]
     B = [b1,b2]
+    oldVersion = False
     
-    st.session_state['config'] = {'init':'0', 'totalStartups':0, 'Q':Q,'P':P,'V':V,'W':W,'B':B}
+    st.session_state['config'] = {'init':'0', 'totalStartups':0, 'Q':Q,'P':P,'V':V,'W':W,'B':B, 'oldVersion': oldVersion}
 
 if 'config' not in st.session_state:
     initConfig()
@@ -41,6 +42,12 @@ st.set_page_config(layout="wide",page_title="TCC MBA USP ESALQ",page_icon="chart
 def resetAll():
     initConfig()
 
+def rerunApp(config):
+    if config['oldVersion']:
+        st.experimental_rerun()
+    else:
+        st.rerun()
+        
 def checkIntegerAnswersCompany(resultsFromCompanies):
     status = True
     try:
@@ -70,7 +77,7 @@ if buttonNumberOfStartups:
     st.session_state['config'] = config
     #if st.session_state.get('buttonNumberStartup'):
     #    disabled
-    st.experimental_rerun()
+    rerunApp(config)
 
 if config['init'] == '1':
     #config['init'] = '2'
@@ -81,7 +88,7 @@ if config['init'] == '1':
         config['init'] = '2'
         config['companyNames'] = companyNames
         st.session_state['config'] = config
-        st.experimental_rerun()
+        rerunApp(config)
 
 
 if config['init'] == '2':
@@ -109,7 +116,7 @@ if config['init'] == '2':
             config['init'] = '3'
             config['resultsFromCompany'] = resultsFromCompany
             st.session_state['config'] = config
-            st.experimental_rerun()
+            rerunApp(config)
         else:
             st.warning("Atenção!!! Responder todos critérios")
             # time.sleep(1.0)
