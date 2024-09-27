@@ -1,0 +1,4 @@
+matplotlib
+matplotlib-inline
+numpy
+pyDecision
