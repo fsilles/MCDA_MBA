@@ -4,7 +4,7 @@ import numpy as np
 import time
 import datetime
 import streamlit as st
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from pandas import read_csv
 from commom import commomHeader
 from pyDecision.algorithm import electre_tri_b
