@@ -47,7 +47,7 @@ def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
                 ]
     allOptionsList.append(options03)
     for idx, selectMessage in enumerate(listOfLabelMessage):
-        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue + '_' + str(idx) )
+        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue )
         allResults.append(optionResult)
         if showAnswer:
             st.write("Opcao escolhida: ", optionResult)
@@ -92,7 +92,7 @@ def selectOptionsDefinitionMaturity(st, keyValue, showAnswer = False):
                 ]
     allOptionsList.append(options03)
     for idx, selectMessage in enumerate(listOfLabelMessage):
-        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue + '_' + str(idx) )
+        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue )
         allResults.append(optionResult)
         if showAnswer:
             st.write("Opcao escolhida: ", optionResult)
@@ -138,7 +138,7 @@ def selectOptionsDefinitionPotencial(st, keyValue, showAnswer = False):
                 ]
     allOptionsList.append(options03)
     for idx, selectMessage in enumerate(listOfLabelMessage):
-        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue + '_' + str(idx) )
+        optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue )
         allResults.append(optionResult)
         if showAnswer:
             st.write("Opcao escolhida: ", optionResult)
