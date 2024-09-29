@@ -198,8 +198,9 @@ def showResults(st,config):
     #st.write(config)
 
     companies , dataset = createDatasetAnswer(config)
-    st.write(companies)
-    st.write(dataset)
+    if config['test']:
+        st.write(companies)
+        st.write(dataset)
     # Call Electre Tri-B Function
     W = config['W']
     Q = config['Q']
