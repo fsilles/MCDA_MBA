@@ -111,10 +111,12 @@ if config['init'] == '2':
         resultsFromCompany[cmpy].append(resultCapacity)
         st.markdown("### --------------------------------------------------------------------------------------------")
         keyValue = cmpy.replace(' ', '') + '_M'
+        st.markdown("# Startup " + cmpy)
         resultMaturity = selectOptionsDefinitionMaturity(st, keyValue, showAnswer=False)
         resultsFromCompany[cmpy].append(resultMaturity)
         st.markdown("### --------------------------------------------------------------------------------------------")
         keyValue = cmpy.replace(' ', '') +  '_P'
+        st.markdown("# Startup " + cmpy)
         resultPotencial = selectOptionsDefinitionPotencial(st, keyValue,  showAnswer=False)
         resultsFromCompany[cmpy].append(resultPotencial)
         st.markdown("## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
