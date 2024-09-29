@@ -24,7 +24,11 @@ def initConfig():
     b1=[2,2,2,2,2,2,2,2,2]
     b2=[4,4,4,4,4,4,4,4,4]
     B = [b1,b2]
+    versionSt = st.__version__
     oldVersion = False
+    if versionSt.startswith('1.10.0'):
+        print('versionSt:', versionSt)
+        oldVersion = True
     test = True
     
     st.session_state['config'] = {'init':'0', 'totalStartups':0, 'Q':Q,'P':P,'V':V,'W':W,'B':B, 'oldVersion': oldVersion, 'test': test}
