@@ -16,17 +16,18 @@ from criterionCreation import   selectOptionsDefinitionCapacity, selectOptionsDe
 # configurações de sessão
 def initConfig():
     
-    Q = [1,1,1,1,1,1,1,1,1]
-    P = [2,2,2,2,2,2,2,2,2]
-    V = [3,3,3,3,3,3,3,3,3]
+    Q = [0,0,0,0,0,0,0,0,0]
+    P = [1,1,1,1,1,1,1,1,1]
+    V = [4,4,4,4,4,4,4,4,4]
     W = [1,1,1,1,1,1,1,1,1]
 
     b1=[2,2,2,2,2,2,2,2,2]
     b2=[4,4,4,4,4,4,4,4,4]
     B = [b1,b2]
     oldVersion = False
+    test = True
     
-    st.session_state['config'] = {'init':'0', 'totalStartups':0, 'Q':Q,'P':P,'V':V,'W':W,'B':B, 'oldVersion': oldVersion}
+    st.session_state['config'] = {'init':'0', 'totalStartups':0, 'Q':Q,'P':P,'V':V,'W':W,'B':B, 'oldVersion': oldVersion, 'test': test}
 
 if 'config' not in st.session_state:
     initConfig()
@@ -48,7 +49,7 @@ def rerunApp(config):
     else:
         st.rerun()
         
-def checkIntegerAnswersCompany(resultsFromCompanies):
+def checkIntegerAnswersCompany(resultsFromCompanies, config):
     status = True
     try:
         for key in resultsFromCompanies.keys():
@@ -56,6 +57,8 @@ def checkIntegerAnswersCompany(resultsFromCompanies):
             _ = retrieveIntegerAnswersCompany(companyNow)
     except:
         status = False
+        if config['test']:
+            status = True
     return status
 
 # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
@@ -111,7 +114,7 @@ if config['init'] == '2':
         st.markdown("## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     confirmStartupValuesBt = st.button('Confirmar', key='confirmStartupValues')
     if confirmStartupValuesBt:
-        ok = checkIntegerAnswersCompany(resultsFromCompany)
+        ok = checkIntegerAnswersCompany(resultsFromCompany, config)
         if ok:
             config['init'] = '3'
             config['resultsFromCompany'] = resultsFromCompany
@@ -123,6 +126,10 @@ if config['init'] == '2':
 
 if config['init'] == '3':
     showResults(st,config)
+    if config['test']:
+        confirmRerunResultBt = st.button('Atualizar Resultado',key='AtualizarResultado')
+        if confirmRerunResultBt:
+            rerunApp(config)
 
 if config['init'] != '0':
     st.button("Cancelar",  on_click=resetAll)

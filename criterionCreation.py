@@ -172,10 +172,21 @@ def createDatasetAnswer(config):
     companyNames = []
     resultsFromCompany = config['resultsFromCompany']
     for key in resultsFromCompany.keys():
-        companyNames.append(key)
-        companyNow =  resultsFromCompany[key]
-        companyResults = retrieveIntegerAnswersCompany(companyNow)
-        datasetList.append(companyResults)
+            companyNames.append(key)
+    if config['test']:
+        datasetList = [
+                       [1,1,1,1,1,1,1,1,1]
+                       ,[4,4,4,5,3,4,4,4,4]
+                       ,[4,4,3,2,3,4,3,3,3]
+                       ,[2,1,2,1,2,3,2,2,1]
+                       ,[3,3,2,2,2,3,2,3,2]
+                       ,[5,5,5,5,5,5,5,5,5]
+                      ]
+    else:
+        for key in resultsFromCompany.keys():
+            companyNow =  resultsFromCompany[key]
+            companyResults = retrieveIntegerAnswersCompany(companyNow)
+            datasetList.append(companyResults)
     
     dataset = np.array(datasetList)
     return companyNames, dataset
@@ -195,11 +206,14 @@ def showResults(st,config):
     P = config['P']
     V = config['V']
     B = config['B']
-    classification = electre_tri_b(dataset, W , Q , P , V , B , cut_level = 0.8, verbose = True, rule = 'pc', graph = True)
+    classification = electre_tri_b(dataset, W , Q , P , V , B , cut_level = 0.8, verbose = True, rule = 'pc', graph = False)
+    className = ['A=Acima da expectativa', 'B=Aprovada','C=Abaixo da expectativa']
     for i in range(0, len(classification)):
-        #print('x'+str(i+1)+': '+' Class: '+str(classification[i]))
-        classification= 'x'+str(i+1)+': '+' Class: '+str(classification[i])
-        st.write(classification)
+        if config['test']:
+            print('Startup ' + companies[i] +': '+' Class: '+str(className[classification[i]]))
+        classificationResult= 'Startup ' + companies[i] +': '+ str(className[classification[i]])
+        st.write(classificationResult)
+        
 
     
     
