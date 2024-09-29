@@ -29,7 +29,7 @@ def initConfig():
     if versionSt.startswith('1.10.0'):
         print('versionSt:', versionSt)
         oldVersion = True
-    test = True
+    test = False
     
     st.session_state['config'] = {'init':'0', 'totalStartups':0, 'Q':Q,'P':P,'V':V,'W':W,'B':B, 'oldVersion': oldVersion, 'test': test}
 
@@ -73,7 +73,7 @@ commomHeader(st)
 if config['init'] == '0':
     totalNumberOfStartups = st.number_input("Defina a quantidade de startups:", min_value=2, max_value=30, value=2)
     buttonNumberOfStartups = st.button('Confirmar', key='buttonNumberStartup')
-
+    testOnly = st.checkbox('Modo teste',False)
 else:
     buttonNumberOfStartups = False
 
@@ -81,6 +81,8 @@ else:
 if buttonNumberOfStartups:
     config['init'] = '1'
     config['totalStartups'] = totalNumberOfStartups
+    if testOnly:
+        config['test']  = True
     st.session_state['config'] = config
     #if st.session_state.get('buttonNumberStartup'):
     #    disabled
