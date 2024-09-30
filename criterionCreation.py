@@ -24,7 +24,7 @@ def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
                         ,"1. A equipe possui pouca ou nenhuma experiência relevante em IA no problema abordado."
                         ,"2. A equipe possui alguma experiência em IA no assunto, mas limitada e não diretamente relacionada ao problema apresentado."
                         ,"3. A equipe possui experiência moderada em IA no assunto e alguma experiência relevante no problema apresentado."
-                        ,"A equipe possui vasta experiência em IA no assunto e experiência significativa no problema apresentado."
+                        ,"4. A equipe possui vasta experiência em IA no assunto e experiência significativa no problema apresentado."
                         ,"5. A equipe possui extensa experiência em IA no assunto, incluindo vários projetos bem-sucedidos no problema apresentado."
                         ]
     allOptionsList.append(options01)
