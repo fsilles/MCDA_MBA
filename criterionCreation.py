@@ -201,7 +201,7 @@ def showResults(st,config):
     companies , dataset = createDatasetAnswer(config)
     if config['test']:
         st.write(companies)
-        st.write(dataset)
+    st.write(dataset)
     # Call Electre Tri-B Function
     W = config['W']
     Q = config['Q']
