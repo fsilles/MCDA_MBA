@@ -70,9 +70,10 @@ def selectOptionsDefinitionMaturity(st, keyValue, showAnswer = False):
     options01 = ["Selecione uma Qualificação:"
                  ,"1. Ideia - A solução está no estágio inicial de concepção."
                  ,"2. Protótipo - A solução está em fase de prototipagem inicial."
-                 ,"3. MVP - A solução tem um Produto Mínimo Viável funcional."
-                 ,"4. Produto final - A solução está totalmente desenvolvida e pronta para lançamento."
-                 ,"5. Comercializado - A solução está sendo comercializada com necessidade de melhorias."                ]
+                 ,"3. A equipe possui experiência moderada em IA no assunto e alguma experiência relevante no problema apresentado."
+                 ,"4. A equipe possui vasta experiência em IA no assunto e experiência significativa no problema apresentado."
+                 ,"5. A equipe possui extensa experiência em IA no assunto, incluindo vários projetos bem-sucedidos no problema apresentado."
+                 ]
     allOptionsList.append(options01)
 
     options02 = ["Selecione uma opção:"
