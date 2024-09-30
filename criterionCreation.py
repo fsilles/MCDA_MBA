@@ -67,7 +67,7 @@ def selectOptionsDefinitionMaturity(st, keyValue, showAnswer = False):
                         ,"Maturidade para implementar IA (tem dados e clareza na definição do problema)"
                         ,"Objetivo ao participar do programa compatível com o que é oferecido"
                          ]
-    options01 = ["Selecione uma Qualificação:"
+    options01 = ["Selecione uma opção:"
                  ,"1. Ideia - A solução está no estágio inicial de concepção."
                  ,"2. Protótipo - A solução está em fase de prototipagem inicial."
                  ,"3. MVP - A solução tem um Produto Mínimo Viável funcional."
@@ -113,7 +113,7 @@ def selectOptionsDefinitionPotencial(st, keyValue, showAnswer = False):
                        ,"Modelo de negócio e estratégias de mercado" 
                        ,"Capacidade de atração de investimentos e parcerias internas ou externas"
                        ]
-    options01 = ["Selecione uma Qualificação:"
+    options01 = ["Selecione uma opção:"
                  ,"1. A solução possui pouca ou nenhuma diferenciação ou inovação."
                  ,"2. A solução tem alguma inovação, mas pouca diferenciação em relação ao mercado."
                  ,"3. A solução possui inovação moderada e alguma diferenciação."
