@@ -20,12 +20,12 @@ def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
                          ,"Qualificação e experiência da equipe de mentores/especialistas de outras áreas do instituto disponíveis para ajudar ou startup possui experiência no domínio específico do problema"
                          ,"Capacidade da equipe de IA da startup em implementar as metodologias/algoritmos /ideias propostas durante o programa"
                          ]
-    options01 = ["Selecione uma Qualificação:"
+    options01 = ["Selecione uma opção:"
                         ,"1. A equipe possui pouca ou nenhuma experiência relevante em IA no problema abordado."
-                        ,"2. A equipe possui alguma experiência em IA no assunto, mas limitada e não diretamente relacionada ao problema apresentado"
-                        ,"3. MVP - A solução tem um Produto Mínimo Viável funcional."
-                        ,"4. Produto final - A solução está totalmente desenvolvida e pronta para lançamento."
-                        ,"5. Comercializado - A solução está sendo comercializada com necessidade de melhorias"
+                        ,"2. A equipe possui alguma experiência em IA no assunto, mas limitada e não diretamente relacionada ao problema apresentado."
+                        ,"3. A equipe possui experiência moderada em IA no assunto e alguma experiência relevante no problema apresentado."
+                        ,"A equipe possui vasta experiência em IA no assunto e experiência significativa no problema apresentado."
+                        ,"5. A equipe possui extensa experiência em IA no assunto, incluindo vários projetos bem-sucedidos no problema apresentado."
                         ]
     allOptionsList.append(options01)
 
