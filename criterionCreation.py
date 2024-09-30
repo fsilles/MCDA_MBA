@@ -16,7 +16,7 @@ def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
 
     allOptionsList = []
     #### primeira Lista
-    listOfLabelMessage=["Qualificação e experiência da equipe técnica de mentores no problema de IA apresentador:"
+    listOfLabelMessage=["Qualificação e experiência da equipe técnica de mentores no problema de IA apresentado:"
                          ,"Qualificação e experiência da equipe de mentores/especialistas de outras áreas do instituto disponíveis para ajudar ou startup possui experiência no domínio específico do problema"
                          ,"Capacidade da equipe de IA da startup em implementar as metodologias/algoritmos /ideias propostas durante o programa"
                          ]
