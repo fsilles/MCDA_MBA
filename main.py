@@ -55,15 +55,18 @@ def rerunApp(config):
         
 def checkIntegerAnswersCompany(resultsFromCompanies, config):
     status = True
+    answerNumber = 1
     try:
         for key in resultsFromCompanies.keys():
             companyNow =  resultsFromCompany[key]
             _ = retrieveIntegerAnswersCompany(companyNow)
+            answerNumber += 1
+            print('answerNumber', answerNumber)
     except:
         status = False
         if config['test']:
             status = True
-    return status
+    return status, answerNumber
 
 # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
 # Desenha o header de todas as páginas
@@ -122,14 +125,15 @@ if config['init'] == '2':
         st.markdown("## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     confirmStartupValuesBt = st.button('Confirmar', key='confirmStartupValues')
     if confirmStartupValuesBt:
-        ok = checkIntegerAnswersCompany(resultsFromCompany, config)
+        ok, question = checkIntegerAnswersCompany(resultsFromCompany, config)
         if ok:
             config['init'] = '3'
             config['resultsFromCompany'] = resultsFromCompany
             st.session_state['config'] = config
             rerunApp(config)
         else:
-            st.warning("Atenção!!! Responder todos critérios")
+            message = "Atenção!!! Responder todos critérios. Verifique startup: " + str(question)
+            st.warning(message)
             # time.sleep(1.0)
 
 if config['init'] == '3':

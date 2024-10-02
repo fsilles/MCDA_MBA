@@ -1,4 +1,5 @@
 import numpy as np 
+import pandas as pd
 from pyDecision.algorithm import electre_tri_b
 
 def createASelectionOption(st, labelName, options, keyValue):
@@ -16,10 +17,10 @@ def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
 
     allOptionsList = []
     #### primeira Lista
-    listOfLabelMessage=["Qualificação e experiência da equipe técnica de mentores no (problema de IA) apresentado:"
-                         ,"Qualificação e experiência da equipe técnica de mentores no (domínio específico) do problema"
-                         ,"A startup possui experiência no domínio específico do problema (saúde, educação, indústria, meio ambiente, etc):"
-                         ,"Capacidade da equipe de IA da startup em implementar as metodologias/algoritmos /ideias propostas durante o programa"
+    listOfLabelMessage=["Q1 - Qualificação e experiência da equipe técnica de mentores no (problema de IA) apresentado:"
+                         ,"Q2 - Qualificação e experiência da equipe técnica de mentores no (domínio específico) do problema"
+                         ,"Q3 - A startup possui experiência no domínio específico do problema (saúde, educação, indústria, meio ambiente, etc):"
+                         ,"Q4 -Capacidade da equipe de IA da startup em implementar as metodologias/algoritmos /ideias propostas durante o programa"
                          ]
     options01 = ["Selecione uma opção:"
                         ,"1. A equipe possui pouca ou nenhuma experiência relevante em IA no problema abordado."
@@ -72,9 +73,9 @@ def selectOptionsDefinitionMaturity(st, keyValue, showAnswer = False):
 
     allOptionsList = []
     #### primeira Lista
-    listOfLabelMessage=["Nível de desenvolvimento da tecnologia atual (ideia,protótipo,MVP,produto final)"
-                        ,"Maturidade para implementar IA (tem dados e clareza na definição do problema)"
-                        ,"Objetivo ao participar do programa compatível com o que é oferecido"
+    listOfLabelMessage=["Q5 - Nível de desenvolvimento da tecnologia atual (ideia,protótipo,MVP,produto final)"
+                        ,"Q6 - Maturidade para implementar IA (tem dados e clareza na definição do problema)"
+                        ,"Q7 - Objetivo ao participar do programa compatível com o que é oferecido"
                          ]
     options01 = ["Selecione uma opção:"
                  ,"1. Ideia - A solução está no estágio inicial de concepção."
@@ -118,9 +119,9 @@ def selectOptionsDefinitionPotencial(st, keyValue, showAnswer = False):
 
     allOptionsList = []
     #### primeira Lista
-    listOfLabelMessage=["Diferenciação e inovação da solução"
-                       ,"Modelo de negócio e estratégias de mercado" 
-                       ,"Capacidade de atração de investimentos e parcerias internas ou externas"
+    listOfLabelMessage=["Q8 - Diferenciação e inovação da solução"
+                       ,"Q9 - Modelo de negócio e estratégias de mercado" 
+                       ,"Q10 - Capacidade de atração de investimentos e parcerias internas ou externas"
                        ]
     options01 = ["Selecione uma opção:"
                  ,"1. A solução possui pouca ou nenhuma diferenciação ou inovação."
@@ -210,7 +211,9 @@ def showResults(st,config):
     companies , dataset = createDatasetAnswer(config)
     if config['test']:
         st.write(companies)
-    st.write(dataset)
+    columnNames = ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9', 'Q10']
+    datasetResults = pd.DataFrame(dataset, index=[companies],columns=columnNames)
+    st.write(datasetResults)
     # Call Electre Tri-B Function
     W = config['W']
     Q = config['Q']
