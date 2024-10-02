@@ -16,8 +16,9 @@ def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
 
     allOptionsList = []
     #### primeira Lista
-    listOfLabelMessage=["Qualificação e experiência da equipe técnica de mentores no problema de IA apresentado:"
-                         ,"Qualificação e experiência da equipe de mentores/especialistas de outras áreas do instituto disponíveis para ajudar ou startup possui experiência no domínio específico do problema"
+    listOfLabelMessage=["Qualificação e experiência da equipe técnica de mentores no (problema de IA) apresentado:"
+                         ,"Qualificação e experiência da equipe técnica de mentores no (domínio específico) do problema"
+                         ,"A startup possui experiência no domínio específico do problema (saúde, educação, indústria, meio ambiente, etc):"
                          ,"Capacidade da equipe de IA da startup em implementar as metodologias/algoritmos /ideias propostas durante o programa"
                          ]
     options01 = ["Selecione uma opção:"
@@ -30,22 +31,30 @@ def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
     allOptionsList.append(options01)
 
     options02 = ["Selecione uma opção:"
-                 ,"1. Nem a startup nem os mentores possuem experiência no domínio específico, e há pouca viabilidade de buscar apoio em outras áreas ou externamente."
-                 ,"2. Nem a startup nem os mentores possuem experiência no domínio específico, mas há alguma viabilidade de buscar apoio em outras áreas ou externamente."
-                 ,"3. Os mentores ou a startup possuem alguma experiência no domínio específico, e há viabilidade moderada de buscar apoio em outras áreas ou externamente."
-                 ,"4. A startup possui significativa experiência no domínio específico, e não necessita buscar apoio em outras áreas ou externamente."
-                 ,"5. A startup possui ampla experiência no domínio específico, e os mentores possuem experiência no domínio específico."
-
+                 ,"1. Os mentores não possuem experiência no domínio específico, e há pouca viabilidade de buscar apoio em outras áreas do instituto ou externamente."
+                 ,"2. Os mentores não possuem experiência no domínio específico, mas há alguma viabilidade de buscar apoio em outras áreas do instituto ou externamente."
+                 ,"3. Os mentores possuem alguma experiência no domínio específico, e há viabilidade moderada de buscar apoio em outras áreas do instituto ou externamente."
+                 ,"4. Os mentores possuem significativa experiência no domínio específico, sem necessidade de buscar apoio em outras áreas do instituto ou externamente."
+                 ,"5. Os mentores possuem ampla experiência no domínio específico e oferecem todo o suporte necessário."
                 ]
     allOptionsList.append(options02)
     options03 = ["Selecione uma opção:"
+                 ,"1. A startup não possui experiência no domínio específico e há pouca viabilidade de buscar apoio externamente."
+                 ,"2. A startup não possui experiência no domínio específico, mas há alguma viabilidade de buscar apoio externamente."
+                 ,"3. A startup possui alguma experiência no domínio específico, e há viabilidade moderada de buscar apoio externamente."
+                 ,"4. A startup possui significativa experiência no domínio específico, e não necessita buscar apoio externamente."
+                 ,"5. A startup possui ampla experiência no domínio específico e opera de forma independente."
+
+                ]
+    allOptionsList.append(options03)
+    options04 = ["Selecione uma opção:"
                  ,"1. A equipe possui baixa capacidade de implementação, com habilidades limitadas em IA."
                  ,"2. A equipe possui alguma capacidade de implementação, mas com lacunas significativas em habilidades e recursos humanos."
                  ,"3. A equipe possui capacidade moderada de implementação, com habilidades e recursos humanos suficientes para abordar os desafios comuns."
                  ,"4. A equipe possui alta capacidade de implementação, com habilidades avançadas em IA e recursos humanos."
                  ,"5. A equipe possui capacidade de implementação excepcional, com habilidades abrangentes e experiência comprovada em IA, aparenta não precisar da ajuda."
                 ]
-    allOptionsList.append(options03)
+    allOptionsList.append(options04)
     for idx, selectMessage in enumerate(listOfLabelMessage):
         optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue + '_' + str(idx) )
         allResults.append(optionResult)
