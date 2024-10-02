@@ -16,13 +16,13 @@ from criterionCreation import   selectOptionsDefinitionCapacity, selectOptionsDe
 # configurações de sessão
 def initConfig():
     
-    Q = [0,0,0,0,0,0,0,0,0]
-    P = [1,1,1,1,1,1,1,1,1]
-    V = [4,4,4,4,4,4,4,4,4]
-    W = [1,1,1,1,1,1,1,1,1]
+    Q = [0,0,0,0,0,0,0,0,0,0]
+    P = [1,1,1,1,1,1,1,1,1,1]
+    V = [4,4,4,4,4,4,4,4,4,4]
+    W = [1,1,1,1,1,1,1,1,1,1]
 
-    b1=[2,2,2,2,2,2,2,2,2]
-    b2=[4,4,4,4,4,4,4,4,4]
+    b1=[2,2,2,2,2,2,2,2,2,2]
+    b2=[4,4,4,4,4,4,4,4,4,4]
     B = [b1,b2]
     versionSt = st.__version__
     oldVersion = False
