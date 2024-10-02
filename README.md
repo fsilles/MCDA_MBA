@@ -9,6 +9,7 @@
 ########		ou
 ######## 'arteDigital'
 
-### Comando para rodar o script
+### Comando para rodar o script 
 ## streamlit run main.py
+
 
