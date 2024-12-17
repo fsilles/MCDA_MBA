@@ -125,14 +125,14 @@ if config['init'] == '2':
         st.markdown("## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     confirmStartupValuesBt = st.button('Confirmar', key='confirmStartupValues')
     if confirmStartupValuesBt:
-        ok, question = checkIntegerAnswersCompany(resultsFromCompany, config)
+        ok,startupNumber = checkIntegerAnswersCompany(resultsFromCompany, config)
         if ok:
             config['init'] = '3'
             config['resultsFromCompany'] = resultsFromCompany
             st.session_state['config'] = config
             rerunApp(config)
         else:
-            message = "Atenção!!! Responder todos critérios. Verifique startup: " + str(question)
+            message = f"Atenção!!! Responder todos critérios. Verifique startup: {startupNumber}"
             st.warning(message)
             # time.sleep(1.0)
 
