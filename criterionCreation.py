@@ -119,7 +119,7 @@ def selectOptionsDefinitionPotencial(st, keyValue, showAnswer = False):
 
     allOptionsList = []
     #### primeira Lista
-    listOfLabelMessage=["Q8 - Diferenciação e inovação da solução"
+    listOfLabelMessage=["Q8 - Grau de inovação da solução"
                        ,"Q9 - Modelo de negócio e estratégias de mercado" 
                        ,"Q10 - Capacidade de atração de investimentos e parcerias internas ou externas"
                        ]
