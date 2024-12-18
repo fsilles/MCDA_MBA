@@ -9,7 +9,7 @@ def createASelectionOption(st, labelName, options, keyValue):
     return option
 
 def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
-    # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
+    # §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§ #
     st.subheader("Critério: Capacidade Equipe")
     st.markdown('##### ------------------------------------------------------------------------------------------')
 
