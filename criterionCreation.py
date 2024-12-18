@@ -17,10 +17,10 @@ def selectOptionsDefinitionCapacity(st, keyValue, showAnswer = False):
 
     allOptionsList = []
     #### primeira Lista
-    listOfLabelMessage=["Q1 - Qualificação e experiência da equipe técnica de mentores no (problema de IA) apresentado:"
-                         ,"Q2 - Qualificação e experiência da equipe técnica de mentores no (domínio específico) do problema"
-                         ,"Q3 - A startup possui experiência no domínio específico do problema (saúde, educação, indústria, meio ambiente, etc):"
-                         ,"Q4 -Capacidade da equipe de IA da startup em implementar as metodologias/algoritmos /ideias propostas durante o programa"
+    listOfLabelMessage=["Q1 - Qualificação e experiência da equipe técnica de (mentores) no (problema de IA - linguagem natural, visão computacional, otimização, etc) apresentado:"
+                         ,"Q2 - Qualificação e experiência da equipe técnica de (mentores) no domínio específico do problema (saúde, educação, indústria, meio ambiente, etc):"
+                         ,"Q3 - A (startup) possui experiência no domínio específico do problema (saúde, educação, indústria, meio ambiente, etc):"
+                         ,"Q4 - Capacidade da equipe de IA da (startup) em implementar as metodologias/algoritmos /ideias propostas durante o programa"
                          ]
     options01 = ["Selecione uma opção:"
                         ,"1. A equipe possui pouca ou nenhuma experiência relevante em IA no problema abordado."
@@ -120,33 +120,33 @@ def selectOptionsDefinitionPotencial(st, keyValue, showAnswer = False):
     allOptionsList = []
     #### primeira Lista
     listOfLabelMessage=["Q8 - Grau de inovação da solução"
-                       ,"Q9 - Modelo de negócio e estratégias de mercado" 
-                       ,"Q10 - Capacidade de atração de investimentos e parcerias internas ou externas"
+                       ,"Q9 - Modelo de negócio" 
+                       ,"Q10 - Capacidade de atração de investimentos"
                        ]
     options01 = ["Selecione uma opção:"
-                 ,"1. A solução possui pouca ou nenhuma diferenciação ou inovação."
-                 ,"2. A solução tem alguma inovação, mas pouca diferenciação em relação ao mercado."
-                 ,"3. A solução possui inovação moderada e alguma diferenciação."
-                 ,"4. A solução é altamente inovadora e bem diferenciada."
-                 ,"5. A solução é extremamente inovadora e única no mercado."
+                 ,"1. (Pouca ou nenhuma inovação) A solução não apresenta elementos inovadores relevantes e utiliza abordagens já conhecidas no mercado."
+                 ,"2. (Alguma inovação) A solução possui pequenos elementos inovadores, mas sua aplicação é limitada e pouco diferenciada."
+                 ,"3. (Inovação moderada) A solução incorpora elementos inovadores significativos que representam melhorias visíveis em relação ao estado atual."
+                 ,"4. (Alta inovação) A solução apresenta um alto grau de inovação, utilizando abordagens avançadas e diferenciadas em relação ao mercado."
+                 ,"5. (Inovação extrema) A solução é extremamente inovadora, introduzindo tecnologias ou conceitos inéditos que representam uma mudança disruptiva no mercado."
                 ]
     allOptionsList.append(options01)
 
     options02 = ["Selecione uma opção:"
-                 ,"1. O modelo de negócio é fraco e as estratégias de mercado são pouco definidas."
-                 ,"2. O modelo de negócio é básico e as estratégias de mercado são limitadas."
-                 ,"3. O modelo de negócio é razoável e as estratégias de mercado são moderadamente definidas."
-                 ,"4. O modelo de negócio é forte e as estratégias de mercado são bem definidas."
-                 ,"5. O modelo de negócio é robusto e inovador, com estratégias de mercado altamente definidas e eficazes."
+                 ,"1. O modelo de negócio é fraco e apresenta falhas na estruturação e execução."
+                 ,"2. O modelo de negócio é básico, com estrutura simples e limitada capacidade de escalabilidade."
+                 ,"3. O modelo de negócio é razoável, apresentando fundamentos sólidos, mas com oportunidades de melhoria."
+                 ,"4. O modelo de negócio é forte, bem estruturado e com alta viabilidade operacional."
+                 ,"5. O modelo de negócio é robusto e inovador, com excelente estruturação e grande potencial de crescimento."
                 ]
     allOptionsList.append(options02)
     options03 = ["Selecione uma opção:"
-                ,"1. A startup tem pouca ou nenhuma capacidade de atrair investimentos ou parcerias."
-                ,"2. A startup tem alguma capacidade de atrair investimentos ou parcerias."
-                ,"3. A startup tem capacidade moderada de atrair investimentos e parcerias."
-                ,"4. A startup tem alta capacidade de atrair investimentos e parcerias significativas."
-                ,"5. A startup tem excelente capacidade de atrair investimentos e parcerias estratégicas robustas."
-                ]
+                ,"1. A startup tem pouca ou nenhuma capacidade de atrair investimentos, sem visibilidade ou atratividade para investidores."
+                ,"2. A startup tem baixa capacidade de atrair investimentos, gerando interesse restrito e oportunidades limitadas."
+                ,"3. A startup possui capacidade moderada de atrair investimentos, com algum reconhecimento e atração de investidores."
+                ,"4. A startup apresenta alta capacidade de atrair investimentos, despertando interesse consistente de investidores relevantes."
+                ,"5. A startup possui excelente capacidade de atrair investimentos, com forte atratividade, confiança no mercado e acesso facilitado a recursos."
+            ]
     allOptionsList.append(options03)
     for idx, selectMessage in enumerate(listOfLabelMessage):
         optionResult = createASelectionOption(st, selectMessage,allOptionsList[idx], keyValue + '_' + str(idx) )
