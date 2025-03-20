@@ -220,7 +220,7 @@ def showResults(st,config):
     P = config['P']
     V = config['V']
     B = config['B']
-    classification = electre_tri_b(dataset, W , Q , P , V , B , cut_level = 0.8, verbose = True, rule = 'pc', graph = False)
+    classification = electre_tri_b(dataset, W , Q , P , V , B , cut_level = 0.7, verbose = True, rule = 'pc', graph = False)
     className = ['A=Acima da expectativa', 'B=Aprovada','C=Abaixo da expectativa']
     for i in range(0, len(classification)):
         if config['test']:
