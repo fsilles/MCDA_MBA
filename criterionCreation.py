@@ -164,9 +164,9 @@ def defineStartupNames(st, totalStartups):
             zeroStr = '0'
         strNumber = idx + 1
 
-        strCompany = chr(ord('A') + idx)
+        strCompany = f"Startup {zeroStr}{strNumber}"
 
-        company = st.text_input(f"Startup {zeroStr}{strNumber}:", strCompany )
+        company = st.text_input(strCompany+":", strCompany )
         companyNames.append(company)
     return companyNames
 

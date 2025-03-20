@@ -74,7 +74,7 @@ commomHeader(st)
 
 
 if config['init'] == '0':
-    totalNumberOfStartups = st.number_input("Defina a quantidade de startups:", min_value=2, max_value=30, value=2)
+    totalNumberOfStartups = st.number_input("Defina a quantidade de startups:", min_value=2, max_value=100, value=2)
     buttonNumberOfStartups = st.button('Confirmar', key='buttonNumberStartup')
     testOnly = False #st.checkbox('Modo teste',False)
 else:
